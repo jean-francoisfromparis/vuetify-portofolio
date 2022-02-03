@@ -1,0 +1,55 @@
+$color-html: hsl(15, 100%, 60%);
+$color-css: hsl(200, 100%, 60%);
+$color-scss: hsl(300, 100%, 60%);
+$color-js: hsl(0, 100%, 60%);;
+$color-twig: hsl(220, 100%, 60%);
+$color-jquery: hsl(110, 100%, 60%);
+$color-react: hsl(180, 100%, 60%);
+$color-angular: hsl(60, 100%, 60%);
+$color-vue: hsl(145, 17%, 29%);
+
+.shadow {
+    &-html {
+      filter: drop-shadow(0 0 5px $color-html);
+    }
+    &-css {
+      filter: drop-shadow(0 0 5px $color-css);
+    }
+    &-scss {
+      filter: drop-shadow(0 0 5px $color-scss);
+    }
+    &-js {
+      filter: drop-shadow(0 0 5px $color-js);
+    }
+    &-twig {
+      filter: drop-shadow(0 0 5px $color-twig);
+    }
+    &-jquery {
+      filter: drop-shadow(0 0 5px $color-jquery);
+    }
+    &-react {
+      filter: drop-shadow(0 0 5px $color-react);
+    }
+    &-angular {
+      filter: drop-shadow(0 0 5px $color-angular);
+    }
+    &-vue {
+      filter: drop-shadow(0 0 5px $color-vue);
+    }
+  }
+
+.theme--light.v-icon:hover{
+    color: blue;
+}
+
+.figma:hover{
+  color: blue;
+}
+
+svg:hover{
+    fill:blue;
+}
+
+.v-progress-circular {
+    margin: 1rem;
+  }

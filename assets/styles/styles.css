@@ -1,0 +1,41 @@
+.shadow-html {
+  filter: drop-shadow(0 0 5px #ff6633);
+}
+.shadow-css {
+  filter: drop-shadow(0 0 5px #33bbff);
+}
+.shadow-scss {
+  filter: drop-shadow(0 0 5px #ff33ff);
+}
+.shadow-js {
+  filter: drop-shadow(0 0 5px #ff3333);
+}
+.shadow-twig {
+  filter: drop-shadow(0 0 5px #3377ff);
+}
+.shadow-jquery {
+  filter: drop-shadow(0 0 5px #55ff33);
+}
+.shadow-react {
+  filter: drop-shadow(0 0 5px #33ffff);
+}
+.shadow-angular {
+  filter: drop-shadow(0 0 5px #ffff33);
+}
+.shadow-vue {
+  filter: drop-shadow(0 0 5px #3d5748);
+}
+
+.theme--light.v-icon:hover {
+  color: blue;
+}
+
+svg:hover {
+  fill: blue;
+}
+
+.v-progress-circular {
+  margin: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
