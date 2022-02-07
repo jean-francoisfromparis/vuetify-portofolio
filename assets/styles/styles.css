@@ -30,12 +30,34 @@
   color: blue;
 }
 
+.figma:hover {
+  color: blue;
+}
+
 svg:hover {
   fill: blue;
 }
 
 .v-progress-circular {
   margin: 1rem;
+}
+
+.calendly-badge-widget {
+  left: 50% !important;
+  margin-left: -100px !important;
+}
+
+#contact {
+  height: 80vh;
+}
+
+.truncate-ellipsis {
+  width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  direction: rtl;
 }
 
 /*# sourceMappingURL=styles.css.map */
