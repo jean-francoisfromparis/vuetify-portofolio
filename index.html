@@ -38,8 +38,8 @@
 
                         <br/>
 
-                        <span :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']" class="font-weight-black">
-                          Je suis Jean-François LEPANTE - prêt à coder pour vous
+                        <span :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-3']" class="font-weight-black">
+                          Je suis Jean-François LEPANTE<br/> Prêt à coder pour vous
                         </span>
                       </v-col>
 
@@ -179,24 +179,7 @@
 
           <div class="py-12"></div>
         </section>
-
-        <section id="stats">
-          <v-parallax :height="$vuetify.breakpoint.smAndDown ? 700 : 500" src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
-            <v-container fill-height>
-              <v-row class="mx-auto">
-                <v-col v-for="[value, title] of stats" :key="title" cols="12" md="3">
-                  <div class="text-center">
-                    <div class="display-3 font-weight-black mb-4" v-text="value"></div>
-
-                    <div class="title font-weight-regular text-uppercase" v-text="title"></div>
-                  </div>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-parallax>
-        </section>
-
-        <section id="project" class="grey lighten-5">
+        <section id="project" class="grey lighten-4">
           <div class="py-12"></div>
 
           <v-container>
@@ -210,14 +193,14 @@
               <v-divider></v-divider>
             </v-responsive>
             <v-row>
-              <v-col v-for="({ src, title, description, status, icon, environment}, i) in projects" :key="i" cols="12" md="4">
-                <v-card width="370" height="400" relative>
+              <v-col v-for="({ src, title, description, status, icon, environment,github}, i) in projects" :key="i" cols="12" md="4">
+                <v-card width="370" height="450" relative>
                   <v-img :src="src" class="align-end mb-1" height="200" max-width="100%">
                     <v-card-title class="black--text text-h4 font-weight-bold" v-text="title"></v-card-title>
                   </v-img>
 
                   <v-card-text class="text--primary">
-                    <v-row style="min-height:76px">
+                    <v-row style="min-height:60px">
                       <v-col cols="1">
                         <v-icon class="d-block">mdi-layers-triple-outline</v-icon>
                       </v-col>
@@ -225,12 +208,20 @@
                         <div class="body-1 font-weight-light" v-text="description"></div>
                       </v-col>
                     </v-row>
-                    <v-row style="min-height:68px">
+                    <v-row style="min-height:60px">
                       <v-col cols="1">
                         <v-icon class="d-block">mdi-cube-outline</v-icon>
                       </v-col>
                       <v-col cols="11">
                         <div class="body-2 font-weight-light" v-text="environment"></div>
+                      </v-col>
+                    </v-row>
+                    <v-row style="min-height:60px">
+                      <v-col cols="1">
+                        <v-icon class="d-block">mdi-git</v-icon>
+                      </v-col>
+                                            <v-col cols="11">
+                        <a :href="github" class="truncate-ellipsis" target="_blank"><span class="d-inline-block text-truncate" v-text="github" style="max-widht:350px;"></span></a>
                       </v-col>
                     </v-row>
                   </v-card-text>
@@ -250,7 +241,7 @@
 
           <div class="py-12"></div>
         </section>
-        <section id="contact" class="grey lighten-6">
+        <section id="contact" class="grey lighten-3">
 
           <div class="py-12"></div>
           <v-container>
@@ -273,7 +264,7 @@
                   <v-dialog v-model="dialog1" width="500">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on" onclick="Calendly.showPopupWidget('https://calendly.com/jeanfrancoislepante/60min?hide_event_type_details=1');return false;">
-                       <v-icon>mdi-calendar-check-outline</v-icon> Prenez rendez-vous
+                       <v-icon>mdi-calendar-check-outline</v-icon>&nbsp;Prenez rendez-vous
                       </v-btn>
                     </template>
                   </v-dialog>
@@ -304,21 +295,6 @@
         src: "https://via.placeholder.com/275x275",
         dialog: false,
         dialog1: false,
-        articles: [
-          {
-            src: "https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-            title: "Mobile first & Responsive",
-            text: "Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum."
-          }, {
-            src: "https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-            title: "Think outside the box",
-            text: "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh."
-          }, {
-            src: "https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80",
-            title: "Small changes, big difference",
-            text: "Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget."
-          }
-        ],
         features: [
           {
             icon: "mdi-monitor-screenshot",
@@ -353,7 +329,7 @@
             fourthValue: 55,
             fifthValue: 50,
             sixthValue: 45,
-            fourthSize: 80,
+            fourthSize: 70,
             fithSize: 0,
             sixthSize: 0
           }, {
@@ -371,8 +347,8 @@
             fourthValue: 40,
             fifthValue: 53,
             sixthValue: 0,
-            fourthSize: 80,
-            fithSize: 80,
+            fourthSize: 70,
+            fithSize: 70,
             sixthSize: 0
           },
         ],
@@ -407,7 +383,7 @@
             subtitle: "App borne de commande et mobile pour restaurant*",
             description: 'Vuejs, Api platform, Symfony-5, scss, javascript, MySQL',
             environment: `Environnement :  Apache webpack`,
-            github: "https://github.com/jean-francoisfromparis/swap",
+            github: "https://github.com/jean-francoisfromparis/pizza-mama-vuejs",
             status: 'En développement',
             icon: 'mdi-Tailwind'
           },
@@ -417,8 +393,8 @@
             subtitle: "App borne de commande et mobile pour restaurant*",
             description: ' Symfony-5, scss, twig, javascript, MySQL',
             environment: `Environnement :  Apache webpack`,
-            github: "https://github.com/jean-francoisfromparis/swap",
-            status: 'En développement',
+            github: "https://github.com/jean-francoisfromparis/pizza-mama",
+            status: 'En ligne',
             icon: 'mdi-Tailwind'
           },
           {
@@ -428,7 +404,7 @@
             description: 'PHP 7, css, twig et javascript',
             environment: `Environnement :  Apache webpack`,
             github: "https://github.com/jean-francoisfromparis/swap",
-            status: 'En production',
+            status: 'En ligne',
             icon: 'mdi-Tailwind'
           }, {
             src: './assets/images/hotel_chambord.png',
@@ -436,8 +412,8 @@
             subtitle: 'Site statique pour un Hôtel Palace*',
             description: 'HTML, CSS et javascript',
             environment: `Environnement : Webpack`,
-            github: "https://github.com/jean-francoisfromparis/swap",
-            status: 'En production',
+            github: "https://github.com/jean-francoisfromparis/projethotelchambord",
+            status: 'En ligne',
             icon: 'mdi-Tailwind'
           },
         ]

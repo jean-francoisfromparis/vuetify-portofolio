@@ -59,3 +59,12 @@ svg:hover{
   #contact {
     height:80vh;
   }
+
+  .truncate-ellipsis {
+    width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    direction: rtl;
+  }
