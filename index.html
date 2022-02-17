@@ -4,6 +4,8 @@
     <title>Portfolio JfDevFromParis</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta data-rh="true" name="description" content="Portfolio de Jean-François LEPANTE Développeur en Apprentissage Fullstack React/Nodejs/Symfony">
+    <meta data-rh="true" name="og:title" content="Stack:HTML, JS, Sass, JQuery, SYMFONY, MySQL, PostGreSQL, COMPOSER, WEBPACK, VUEJS">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"/>
@@ -15,7 +17,7 @@
     <div id="app">
       <v-app>
         <v-app-bar app color="white" height="100">
-          <v-avatar class="mr-3" color="grey lighten-5" size="210">
+          <v-avatar class="mr-3" color="grey lighten-5" size="150">
             <v-img contain max-width="90%" src="./assets/images/logo.png"></v-img>
           </v-avatar>
 
@@ -38,8 +40,11 @@
 
                         <br/>
 
-                        <span :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-3']" class="font-weight-black">
-                          Je suis Jean-François LEPANTE<br/> Prêt à coder pour vous
+                        <span :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-4']" class="font-weight-black">
+                          Je suis
+                          <br class="d-sm-block"/>
+                          Jean-François LEPANTE<br/>
+                          Prêt à coder pour vous
                         </span>
                       </v-col>
 
@@ -106,7 +111,7 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="red lighten-2" text @click="dialog = false">
-                      Fermez
+                      Fermer
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -130,7 +135,7 @@
               </v-responsive>
 
               <v-row>
-                <v-col v-for="({icon, title, firstIcon, secondIcon, thirdIcon, fourthIcon, fifthIcon,sixthIcon,firstValue, secondValue, thirdValue, fourthValue, fifthValue, sixthValue, fourthSize, fithSize,sixthSize}, i) in features" :key="i" cols="12" md="4">
+                <v-col v-for="({icon, title, firstIcon, secondIcon, thirdIcon, fourthIcon, fifthIcon,sixthIcon,firstValue, secondValue, thirdValue, fourthValue, fifthValue, sixthValue, fourthSize, fithSize,sixthSize, firstText,secondText,thirdText, fourthText,fifthText, sixthText}, i) in features" :key="i" cols="12" md="4">
                   <v-card class="py-12 px-4" color="grey lighten-3" style="width:370px" flat>
                     <v-theme-provider dark>
                       <div>
@@ -143,32 +148,65 @@
                     <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
                     <v-row class="justify-center">
                       <v-progress-circular class="shadow-html" :rotate="-180" :size="70" :width="5" :value="firstValue" color="white">
-                        <v-icon large v-text="firstIcon"></v-icon>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon large v-bind="attrs" v-on="on" v-text="firstIcon"></v-icon>
+                          </template>
+                          <span v-text="firstText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
 
                       <v-progress-circular class="shadow-css" :rotate="-180" :size="70" :width="5" :value="secondValue" color="white">
-                        <v-icon large v-text="secondIcon"></v-icon>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon large v-bind="attrs" v-on="on" v-text="secondIcon"></v-icon>
+                          </template>
+                          <span v-text="secondText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
 
                       <v-progress-circular class="shadow-js" :rotate="-180" :size="70" :width="5" :value="thirdValue" color="white">
-                        <v-icon large v-if="thirdIcon  != `figma`" v-text="thirdIcon"></v-icon>
-                        <img v-if="thirdIcon == `figma`" src="./assets/images/figma-brands.svg" alt="figma-brands" class="figma" width="20"/>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon large v-if="thirdIcon  != `figma`" v-text="thirdIcon" v-bind="attrs" v-on="on"></v-icon>
+                            <v-btn v-if="thirdIcon == `figma`" v-bind="attrs" v-on="on" text><img src="./assets/images/figma-brands.svg" alt="figma-brands" class="figma" width="20"/></v-btn>
+                          </template>
+                          <span v-text="thirdText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
                     </v-row>
                     <v-row class="justify-center">
                       <v-progress-circular class="shadow-scss" :rotate="-180" :size="fourthSize" :width="5" :value="fourthValue" color="white">
-                        <v-icon v-if="fourthIcon != `MySQL`" large v-text="fourthIcon"></v-icon>
-                        <img v-if="fourthIcon == `MySQL`" src="./assets/images/MySQL.svg" alt="MySQL" class="figma" width="58"/>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon v-if="fourthIcon != `MySQL`" large v-text="fourthIcon" v-bind="attrs" v-on="on"></v-icon>
+                            <v-btn v-if="fourthIcon == `MySQL`" v-bind="attrs" v-on="on" text="false">
+                              <img v-bind="attrs" v-on="on" src="./assets/images/MySQL.svg" alt="MySQL.svg" class="figma" width="45"/></v-btn>
+                          </template>
+                          <span v-text="fourthText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
 
                       <v-progress-circular class="shadow-twig" :rotate="-180" :size="fithSize" :width="5" :value="fifthValue" color="white">
-                        <v-icon v-if="fifthIcon != `PostGreSQL`" large v-text="fifthIcon"></v-icon>
-                        <img v-if="fifthIcon == `PostGreSQL`" src="./assets/images/postGreSQL.svg" alt="postGreSQL" class="figma" width="45"/>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon v-if="fifthIcon != `PostGreSQL`" large v-text="fifthIcon" v-bind="attrs" v-on="on"></v-icon>
+                            <v-btn v-if="fifthIcon == `PostGreSQL`" v-bind="attrs" v-on="on" text="false">
+                              <img v-bind="attrs" v-on="on" src="./assets/images/postGreSQL.svg" alt="postGreSQL" class="figma" width="45"/></v-btn>
+                          </template>
+                          <span v-text="fifthText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
 
                       <v-progress-circular class="shadow-jquery" :rotate="-180" :size="sixthSize" :width="5" :value="sixthValue" color="white">
-                        <v-icon v-if="sixthIcon != `twig`" large v-text="sixthIcon"></v-icon>
-                        <img v-if="sixthIcon == `twig`" src="./assets/images/twig.png" alt="twig" width="36"/>
+                        <v-tooltip bottom color="blue">
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon v-if="sixthIcon != `twig`" large v-text="sixthIcon" v-bind="attrs" v-on="on"></v-icon>
+                            <v-btn v-if="sixthIcon == `twig`" v-bind="attrs" v-on="on" text="false">
+                              <img v-bind="attrs" v-on="on" src="./assets/images/twig.png" alt="twig" class="figma" width="45"/></v-btn>
+                          </template>
+                          <span v-text="sixthText"></span>
+                        </v-tooltip>
                       </v-progress-circular>
                     </v-row>
 
@@ -177,66 +215,72 @@
               </v-row>
             </v-container>
 
-          <div class="py-12"></div>
-        </section>
-        <section id="project" class="grey lighten-4">
-          <div class="py-12"></div>
+            <div class="py-12"></div>
+          </section>
+          <section id="project" class="grey lighten-4">
+            <div class="py-12"></div>
 
-          <v-container>
-            <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-              Mes réalisations
-            </h2>
+            <v-container>
+              <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
+                Mes réalisations
+              </h2>
 
-            <v-responsive class="mx-auto mb-12" width="56">
-              <v-divider class="mb-1"></v-divider>
+              <v-responsive class="mx-auto mb-12" width="56">
+                <v-divider class="mb-1"></v-divider>
 
-              <v-divider></v-divider>
-            </v-responsive>
-            <v-row>
-              <v-col v-for="({ src, title, description, status, icon, environment,github}, i) in projects" :key="i" cols="12" md="4">
-                <v-card width="370" height="450" relative>
-                  <v-img :src="src" class="align-end mb-1" height="200" max-width="100%">
-                    <v-card-title class="black--text text-h4 font-weight-bold" v-text="title"></v-card-title>
-                  </v-img>
+                <v-divider></v-divider>
+              </v-responsive>
+              <v-row>
+                <v-col v-for="({ src, title, description, status, icon, environment,github}, i) in projects" :key="i" cols="12" md="4">
+                  <v-card width="370" height="450" relative>
+                    <v-img :src="src" class="align-end mb-1" height="200" max-width="100%">
+                      <v-btn color="error" text>
+                        <v-card-title class="black--text text-h4 font-weight-bold" v-text="title"></v-card-title>
+                      </v-btn>
+                    </v-img>
 
-                  <v-card-text class="text--primary">
-                    <v-row style="min-height:60px">
-                      <v-col cols="1">
-                        <v-icon class="d-block">mdi-layers-triple-outline</v-icon>
-                      </v-col>
-                      <v-col cols="11">
-                        <div class="body-1 font-weight-light" v-text="description"></div>
-                      </v-col>
-                    </v-row>
-                    <v-row style="min-height:60px">
-                      <v-col cols="1">
-                        <v-icon class="d-block">mdi-cube-outline</v-icon>
-                      </v-col>
-                      <v-col cols="11">
-                        <div class="body-2 font-weight-light" v-text="environment"></div>
-                      </v-col>
-                    </v-row>
-                    <v-row style="min-height:60px">
-                      <v-col cols="1">
-                        <v-icon class="d-block">mdi-git</v-icon>
-                      </v-col>
-                                            <v-col cols="11">
-                        <a :href="github" class="truncate-ellipsis" target="_blank"><span class="d-inline-block text-truncate" v-text="github" style="max-widht:350px;"></span></a>
-                      </v-col>
-                    </v-row>
-                  </v-card-text>
-                  <v-card-actions align-end>
-                    <v-btn class="font-weight-black me-16" color="orange" text>
-                      voir
-                    </v-btn>
-                    <span class="ms-10" v-text="status"></span>
-                  </v-card-actions>
+                    <v-card-text class="text--primary">
+                      <v-row style="min-height:60px">
+                        <v-col cols="1">
+                          <v-icon class="d-block">mdi-layers-triple-outline</v-icon>
+                        </v-col>
+                        <v-col cols="11">
+                          <div class="body-1 font-weight-light" v-text="description"></div>
+                        </v-col>
+                      </v-row>
+                      <v-row style="min-height:60px">
+                        <v-col cols="1">
+                          <v-icon class="d-block">mdi-cube-outline</v-icon>
+                        </v-col>
+                        <v-col cols="11">
+                          <div class="body-2 font-weight-light" v-text="environment"></div>
+                        </v-col>
+                      </v-row>
+                      <v-row style="min-height:60px">
+                        <v-col cols="1">
+                          <v-icon class="d-block">mdi-git</v-icon>
+                        </v-col>
+                        <v-col cols="11">
+                          <a :href="github" class="" target="_blank">
+                            <span class="d-inline-block" v-text="" style="max-widht:350px;">
+                              {{github | truncate()}}
+                            </span>
+                          </a>
+                        </v-col>
+                      </v-row>
+                    </v-card-text>
+                    <v-card-actions align-end>
+                      <v-btn class="font-weight-black me-16" color="orange" text>
+                        voir
+                      </v-btn>
+                      <span class="ms-10" v-text="status"></span>
+                    </v-card-actions>
 
-                </v-card>
+                  </v-card>
 
-              </v-col>
-            </v-row>
-          </v-container>
+                </v-col>
+              </v-row>
+            </v-container>
           </v-container>
 
           <div class="py-12"></div>
@@ -255,16 +299,15 @@
               <v-divider></v-divider>
             </v-responsive>
             <v-row>
-              <v-card
-                class="ma-auto" widht="370px">
+              <v-card class="ma-auto mb-12" widht="370px">
                 <v-img src="./assets/images/calendly.png"></v-img>
                 <!-- Calendly inline widget begin -->
                 <v-card-actions>
 
                   <v-dialog v-model="dialog1" width="500">
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on" onclick="Calendly.showPopupWidget('https://calendly.com/jeanfrancoislepante/60min?hide_event_type_details=1');return false;">
-                       <v-icon>mdi-calendar-check-outline</v-icon>&nbsp;Prenez rendez-vous
+                      <v-btn color="red lighten-2" class="mb-3" dark v-bind="attrs" v-on="on" onclick="Calendly.showPopupWidget('https://calendly.com/jeanfrancoislepante/60min?hide_event_type_details=1');return false;">
+                        <v-icon>mdi-calendar-check-outline</v-icon>&nbsp;Prendre rendez-vous
                       </v-btn>
                     </template>
                   </v-dialog>
@@ -284,10 +327,19 @@
   &copy;
   {{ (new Date()).getFullYear() }}
   — Made with 💜 by
-  JfDevFromParis
-</div></v-footer></v-app></div><script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script><script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script><script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script><script type="module">new Vue({
+                            JfDevFromParis
+</div>
+</v-footer>
+</v-app>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script type="module">
+new Vue({
     el: "#app",
     vuetify: new Vuetify(),
+
     data() {
       return {
         interval: {},
@@ -300,11 +352,17 @@
             icon: "mdi-monitor-screenshot",
             title: "Front-End",
             firstIcon: "mdi-language-html5",
-            secondIcon: "mdi-language-css3",
+            firstText: "html",
+            secondIcon: "mdi-sass",
+            secondText: "sass",
             thirdIcon: "mdi-language-javascript",
+            thirdText: "Javascript",
             fourthIcon: "mdi-vuejs",
+            fourthText: "Vuejs",
             fifthIcon: "mdi-jquery",
+            fifthText: "JQuery",
             sixthIcon: "twig",
+            sixthText: "twig",
             firstValue: 75,
             secondValue: 75,
             thirdValue: 60,
@@ -318,6 +376,12 @@
             icon: "mdi-hammer-wrench",
             title: "Outils ",
             firstIcon: "mdi-git",
+            firstText: "github",
+            secondText: "gitlab",
+            thirdText: "figma",
+            fourthText: "trello",
+            fifthText: "",
+            sixthText: "",
             secondIcon: "mdi-gitlab",
             thirdIcon: "figma",
             fourthIcon: "mdi-trello",
@@ -341,6 +405,12 @@
             fourthIcon: "MySQL",
             fifthIcon: "PostGreSQL",
             sixthIcon: "",
+            firstText: "php",
+            secondText: "Symfony",
+            thirdText: "Webpack",
+            fourthText: "Mysql",
+            fifthText: "PostGresql",
+            sixthText: "",
             firstValue: 80,
             secondValue: 60,
             thirdValue: 40,
@@ -419,5 +489,11 @@
         ]
       };
 
+    },
+    filters: {
+      truncate: function (data) {
+        const reqdString = data.split("").slice(19).join("");
+        return reqdString;
+      }
     }
   });</script>

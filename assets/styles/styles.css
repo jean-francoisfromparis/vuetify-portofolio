@@ -31,7 +31,7 @@
 }
 
 .figma:hover {
-  color: blue;
+  fill: blue;
 }
 
 svg:hover {
@@ -48,11 +48,15 @@ svg:hover {
 }
 
 #contact {
-  height: 80vh;
+  height: 100vh;
+}
+
+.title:hover {
+  color: blue;
 }
 
 .truncate-ellipsis {
-  width: 260px;
+  width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
