@@ -73,7 +73,7 @@
               <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
                 Je suis développeur Back-end Symfony. Toujours motivé pour développer constamment mes compétences au service de vos projets et vos ambitions. Actuellement actif sur un projet de super-App autour de la "propre-tech" sur une stack
                 <br/>
-                <img src="./assets/images/twig.png" alt="twig" width="36"/>
+                <v-icon large>mdi-palm-tree</v-icon>
                 -
                 <v-icon large>mdi-symfony</v-icon>
                 -
@@ -104,7 +104,7 @@
                 </template>
 
                 <v-card>
-                  <iframe src="./assets/documents/VJFSymfony.pdf" width="100%" height="500px"></iframe>
+                  <iframe src="./assets/documents/cvjfLEPANTE.pdf" width="100%" height="500px"></iframe>
 
                   <v-divider></v-divider>
 
@@ -203,7 +203,7 @@
                           <template v-slot:activator="{ on, attrs }">
                             <v-icon v-if="sixthIcon != `twig`" large v-text="sixthIcon" v-bind="attrs" v-on="on"></v-icon>
                             <v-btn v-if="sixthIcon == `twig`" v-bind="attrs" v-on="on" text="false">
-                              <img v-bind="attrs" v-on="on" src="./assets/images/twig.png" alt="twig" class="figma" width="45"/></v-btn>
+                              <img src="./assets/images/twig.png" alt="twig" class="figma" width="45"/></v-btn>
                           </template>
                           <span v-text="sixthText"></span>
                         </v-tooltip>
@@ -361,7 +361,7 @@ new Vue({
             fourthText: "Vuejs",
             fifthIcon: "mdi-jquery",
             fifthText: "JQuery",
-            sixthIcon: "twig",
+            sixthIcon: "mdi-palm-tree",
             sixthText: "twig",
             firstValue: 75,
             secondValue: 75,
